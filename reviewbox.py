@@ -10,7 +10,7 @@ import argparse
 PARSER = argparse.ArgumentParser(description='Given a classifier tag an image')
 PARSER.add_argument('filename', metavar='filename', type=str,
                    help='image to process')
-PARSER.add_argument('-s', type=float, default=1, help='scaling factor')
+PARSER.add_argument('-s', type=float, default=0.5, help='scaling factor')
 
 ARGS = PARSER.parse_args()
 
