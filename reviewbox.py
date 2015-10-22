@@ -13,10 +13,10 @@ PARSER.add_argument('filename', metavar='filename', type=str,
 PARSER.add_argument('-s', type=float, default=1, help='scaling factor')
 
 ARGS = PARSER.parse_args()
-SCALING = ARGS.s
 
 CASCADE = 'training/data/cascade.xml'
 SRC_IMAGE = ARGS.filename
+SCALING = ARGS.s
 
 CLASSIFIER = cv2.CascadeClassifier(CASCADE)
 
