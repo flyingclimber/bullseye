@@ -10,8 +10,10 @@ import argparse
 PARSER = argparse.ArgumentParser(description='Given a classifier tag an image')
 PARSER.add_argument('filename', metavar='filename', type=str,
                    help='image to process')
+PARSER.add_argument('-s', type=float, default=1, help='scaling factor')
 
 ARGS = PARSER.parse_args()
+SCALING = ARGS.s
 
 CASCADE = 'training/data/cascade.xml'
 SRC_IMAGE = ARGS.filename
@@ -25,6 +27,8 @@ MATCH = CLASSIFIER.detectMultiScale(GRAY, 1.3, 5)
 for (x, y, w, h) in MATCH:
     cv2.rectangle(IMG, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
-cv2.imshow('Sample', IMG)
+RES = cv2.resize(IMG, None, fx=SCALING, fy=SCALING,
+                 interpolation=cv2.INTER_CUBIC)
+cv2.imshow('Sample', RES)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
