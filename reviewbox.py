@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python
 
 '''
     reviewbox.py - Given a classifier tag an image
